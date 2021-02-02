@@ -5,41 +5,44 @@ import {notification} from 'antd';
 
 function Login({setUser}) {
     const history = useHistory();
-    const onFinish = users =>{
-        console.log('onFinish');
-        /* axios.post(process.env.REACT_APP_BASE_URL +'/ws/Login.php',users) */
-        axios.post('https://dev.perseo.tv/ws/Login.php', users)
-        .then(res=>{
-            console.log("res data Login: "+JSON.stringify(res.data));
-            setUser(res.data.user) //seteo el user como estado del App.js
-            localStorage.setItem('authToken',res.data.token);
-            localStorage.setItem('user',JSON.stringify(res.data.user))
-            notification.success({message:'Bienvenido',description:'Bienvenido '+users.email})
-            setTimeout(() => {
-                history.push('/main')
-            }, 1000);
-        })
-        .catch(error=>console.log(error))
-        notification.success({message:'Error',description:'Error to Login'})
-    }
+    const handleSubmit = event => {
+        event.preventDefault(); // para evitar refrescar la página
+        const user = {
+            user: event.target.user.value,
+            pass: event.target.pass.value
+        };
+        console.log(user)
+        axios.post('https://dev.perseo.tv/ws/Login', user)
+            .then(res => {
+                setUser(res.data) //seteo el user como estado del App.js
+                localStorage.setItem('authToken', res.data.token);
+                localStorage.setItem('user', JSON.stringify(res.data))
+                notification.success({ message: 'Welcome', description: user.user })
+                setTimeout(() => {
+                    history.push('/')
+                }, 1000);
+            })
+            .catch(error => { console.log(error); })
+    };
 
     return (
         <div className="login">
 
             <form className="login_form"
-            onFinish={onFinish}>
+            onSubmit={handleSubmit} >
                 <h1>Login Here!</h1>
 
                 <input 
-                type="email"
+                name="user"
                 placeholder="User"
                 />
 
-                <input 
+                <input
+                name="pass" 
                 type="password" 
                 placeholder="Password"
                 />
-                <button type="submit" className="submit_btn">Login</button>
+                <button type="submit" value="Submit" className="submit_btn">Login</button>
             </form>
             
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Login from './Components/Login';
 import Main from './Components/Main';
 import axios from 'axios';
+import 'antd/dist/antd.css';
 import { Switch, BrowserRouter, Route } from 'react-router-dom'
 
 const App = () => {
