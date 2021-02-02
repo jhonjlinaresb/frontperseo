@@ -7,7 +7,8 @@ function Login({setUser}) {
     const history = useHistory();
     const onFinish = users =>{
         console.log('onFinish');
-        axios.post(process.env.REACT_APP_BASE_URL +'/ws/Login.php',users)
+        /* axios.post(process.env.REACT_APP_BASE_URL +'/ws/Login.php',users) */
+        axios.post('https://dev.perseo.tv/ws/Login.php', users)
         .then(res=>{
             console.log("res data Login: "+JSON.stringify(res.data));
             setUser(res.data.user) //seteo el user como estado del App.js
@@ -30,7 +31,7 @@ function Login({setUser}) {
                 <h1>Login Here!</h1>
 
                 <input 
-                type="user"
+                type="email"
                 placeholder="User"
                 />
 
