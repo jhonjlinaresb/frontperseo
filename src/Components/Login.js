@@ -5,24 +5,25 @@ import {notification} from 'antd';
 
 function Login({setUser}) {
     const history = useHistory();
-    const handleSubmit = event => {
-        event.preventDefault(); // para evitar refrescar la página
+    const handleSubmit = params => {
+        params.preventDefault(); // para evitar refrescar la página
         const user = {
-            user: event.target.user.value,
-            pass: event.target.pass.value
+            user: params.target.user.value,
+            pass: params.target.pass.value
         };
         console.log(user)
-        axios.post('https://dev.perseo.tv/ws/Login', user)
+        axios.post('https://dev.perseo.tv/ws/Login.php', user)
             .then(res => {
                 setUser(res.data) //seteo el user como estado del App.js
                 localStorage.setItem('authToken', res.data.token);
                 localStorage.setItem('user', JSON.stringify(res.data))
                 notification.success({ message: 'Welcome', description: user.user })
                 setTimeout(() => {
-                    history.push('/')
+                    history.push('/main')
                 }, 1000);
             })
             .catch(error => { console.log(error); })
+            notification.error({ message: 'Error', description: 'Error to Login User, Try Again' })
     };
 
     return (
