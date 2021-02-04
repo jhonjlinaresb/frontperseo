@@ -9,21 +9,28 @@ function Login({setUser}) {
         params.preventDefault(); // para evitar refrescar la página
         const user = {
             user: params.target.user.value,
-            pass: params.target.pass.value
+            pass: params.target.pass.value,
+            device: 'Web',
+            token: JSON.token
         };
+        const config = {
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
         console.log(user)
-        axios.post('https://dev.perseo.tv/ws/Login.php', user)
+        axios.post('https://dev.perseo.tv/ws/Login.php', user, config )
             .then(res => {
                 setUser(res.data) //seteo el user como estado del App.js
                 localStorage.setItem('authToken', res.data.token);
                 localStorage.setItem('user', JSON.stringify(res.data))
-                notification.success({ message: 'Welcome', description: user.user })
+                notification.success({ message: 'Welcome', description: user.user });
                 setTimeout(() => {
                     history.push('/main')
                 }, 1000);
             })
-            .catch(error => { console.log(error); })
-            notification.error({ message: 'Error', description: 'Error to Login User, Try Again' })
+            .catch(error => { console.log(error); notification.error({ message: 'Error', description: 'Error to Login User, Try Again' }); })
+            
     };
 
     return (
