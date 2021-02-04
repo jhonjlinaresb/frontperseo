@@ -1,7 +1,7 @@
 import React from 'react';
 import qs from 'qs';
 import axios from 'axios';
-import { Input, Button} from 'antd';
+import { Input, Button, Table} from 'antd';
 
 
 const { Search } = Input;
@@ -43,6 +43,10 @@ function Main () {
                     View
             </Button>
             </form>
+            <Table pagination={{ pageSize: 9 }}>
+            <column>{localStorage?.contents}</column>
+                
+            </Table>
         </div>
     )
 }
