@@ -4,6 +4,7 @@ import qs from 'qs';
 import {useHistory} from 'react-router-dom';
 import {notification, Form, Input, Card, Button} from 'antd';
 
+//Variables AntDesign
 const layout = {
     labelCol: { span: 8 },
     wrapperCol: { span: 16 },
@@ -12,6 +13,7 @@ const layout = {
     wrapperCol: { offset: 8, span: 16 },
   };
 
+//Función Login que llama al back
 function Login({setUser}) {
     const history = useHistory();
     const handleSubmit = params => {
@@ -46,7 +48,7 @@ function Login({setUser}) {
     return (
         <div className="login">
             <Card>
-             <form
+            <form
              onSubmit={handleSubmit}
             {...layout}
             >
@@ -63,16 +65,17 @@ function Login({setUser}) {
                 name="pass" 
                 type="password"
                 >
-                    <Input.Password name="pass" placeholder="Password" />
+                <Input.Password name="pass" placeholder="Password" />
                 </Form.Item>
 
                 <Form.Item {...tailLayout}>
                 <Button  type="submit" htmlType="submit" value="Submit">
                     Login
                 </Button>
+
                 </Form.Item>
-        </form>
-        </Card>
+            </form>
+            </Card>
         </div>
     )
 }

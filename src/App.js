@@ -37,8 +37,8 @@ const App = () => {
     <Switch>
     <Route path="/" exact><Home /></Route>
     <Route path='/login' exact ><Login setUser={setUser} /></Route>
-    <Route path='/main' exact><Main user={user} /></Route>
-    <Route path='/player' exact><Player user={user} /></Route>
+    <Route path='/main' exact><Main user={Main} /></Route>
+    <Route path='/player' exact><Player user={Player} /></Route>
     </Switch>
     </BrowserRouter>
     
