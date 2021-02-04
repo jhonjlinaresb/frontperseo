@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
+import crypto from 'crypto';
 import {useHistory} from 'react-router-dom';
 import {notification, Form, Input, Card, Button} from 'antd';
 
@@ -20,7 +21,7 @@ function Login({setUser}) {
         params.preventDefault(); // para evitar refrescar la página
         const user = {
             user: params.target.user.value,
-            pass: params.target.pass.value,
+            pass: crypto.createHash('md5').update(params.target.pass.value).digest('hex'),
             device: 'Web'
         };
         const config = {

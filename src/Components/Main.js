@@ -7,7 +7,7 @@ import { Input, Button} from 'antd';
 const { Search } = Input;
 
 
-function Main ({getView}) {
+function Main () {
     
     const view = params => {
         let token = localStorage.getItem("authToken");
@@ -25,8 +25,8 @@ function Main ({getView}) {
         console.log(get);
         axios.post('https://dev.perseo.tv/ws/GetView.php',qs.stringify(get), config)
         .then(res => {
-          getView(res.data)
-          localStorage.setItem(JSON.stringify(res.data))
+          console.log(res.data);
+          localStorage.setItem('getView',JSON.stringify(res.data));
         }).catch((error)=>{
           console.log(error);
         })
