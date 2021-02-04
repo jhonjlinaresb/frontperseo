@@ -11,16 +11,17 @@ const App = () => {
 
   let initialUser = null;
   try {
-    console.log(localStorage.getItem('user'));
-    initialUser = JSON.parse(localStorage.getItem('user'));
+    //console.log(localStorage.getItem('user'));
+    //initialUser = JSON.parse(localStorage.getItem('user'));
   } catch (error) {
     console.error(error);
   }
 
   const [user, setUser] = useState(initialUser);
   useEffect(() => {
-    const token = localStorage.getItem('authToken')
-    axios.get(process.env.REACT_APP_BASE_URL,
+    const token = localStorage.getItem('authToken');
+    console.log(token);
+    axios(
       {
         headers: {
           Authorization: token
