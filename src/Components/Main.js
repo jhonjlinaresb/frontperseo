@@ -1,9 +1,10 @@
 import React from 'react';
 import qs from 'qs';
 import axios from 'axios';
-import { Input, Button, Table} from 'antd';
+import { Input, Button, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { EyeOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 const Column = Table;
@@ -60,6 +61,13 @@ function Main () {
         })
 
     };
+    const selectOne = ( id ) => {
+      console.log(id);
+      let a = id;
+      console.log(a);
+      axios.post('https://dev.perseo.tv/ws/Play.php',qs.stringify(a))
+      .then(res=>setSeries(res.data.a));
+       }
 
     return (
         <div>
@@ -91,6 +99,17 @@ function Main () {
               <Column title="Duration" dataIndex="duration" key='duration' />
               <Column title="Cover" dataIndex="cover" key='cover' />
               <Column title="Url" dataIndex="url" key='url' />
+
+              <Column
+              title="View"
+              key="action"
+              render={(id) => (
+                  <Link to="/player">
+                  <a onClick={() => selectOne(id)}><EyeOutlined /></a>
+                  </Link>
+                
+              )}
+            />
               </Table>
         </div>
     )

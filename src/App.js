@@ -33,7 +33,7 @@ const App = () => {
   }, [])
 
   const Logout = () =>{
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('authToken', 'results');
     return <Redirect to="/" />
   }
   return (
