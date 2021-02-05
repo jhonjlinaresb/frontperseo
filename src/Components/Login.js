@@ -43,13 +43,13 @@ function Login({setUser}) {
                         token: localStorage.getItem("authToken"),
                         device: 'Web'
                     };
-                     axios.post('https://dev.perseo.tv/ws/GetView.php',qs.stringify(authData), config)
+                     /* axios.post('https://dev.perseo.tv/ws/GetView.php',qs.stringify(authData), config)
                      .then(res => {
                        console.log(res.data);
                        localStorage.setItem('results',res.data.contents);
                      }).catch((error)=>{
                        console.log(error);
-                     })
+                     }) */
                     setTimeout(() => {
                         history.push('/main')
                     }, 5000);

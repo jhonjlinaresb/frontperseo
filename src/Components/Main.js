@@ -61,12 +61,9 @@ function Main () {
         })
 
     };
-    const selectOne = ( id ) => {
-      console.log(id);
-      let a = id;
-      console.log(a);
-      axios.post('https://dev.perseo.tv/ws/Play.php',qs.stringify(a))
-      .then(res=>setSeries(res.data.a));
+    const selectOne = ( serie ) => {
+      localStorage.setItem('serieId',serie.id);
+      
        }
 
     return (
@@ -97,8 +94,8 @@ function Main () {
               <Column title="Title" dataIndex="title" key='title' />
               <Column title="Section" dataIndex="section" key='section' />
               <Column title="Duration" dataIndex="duration" key='duration' />
-              <Column title="Cover" dataIndex="cover" key='cover' />
-              <Column title="Url" dataIndex="url" key='url' />
+              {/* <Column title="Cover" dataIndex="cover" key='cover' />
+              <Column title="Url" dataIndex="url" key='url' /> */}
 
               <Column
               title="View"
