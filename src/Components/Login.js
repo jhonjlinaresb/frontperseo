@@ -35,14 +35,28 @@ function Login({setUser}) {
                 setUser(res.data) //seteo el user como estado del App.js
                 const token = localStorage.token;
                 console.log(JSON.stringify(res.data));
-                localStorage.setItem('authToken', res.data.token, token);
-               // localStorage.setItem('user', JSON.stringify(res.data))
-                notification.success({ message: 'Welcome', description: user.user });
-                setTimeout(() => {
-                    history.push('/main')
-                }, 1000);
-            })
-            .catch(error => { console.log(error); notification.error({ message: 'Error', description: 'Error to Login User, Try Again' }); })
+                if(res.data.authorized == true){
+                      localStorage.setItem('authToken', res.data.token, token);
+                     // localStorage.setItem('user', JSON.stringify(res.data))
+                     notification.success({ message: 'Welcome', description: user.user });
+                     const authData = {
+                        token: localStorage.getItem("authToken"),
+                        device: 'Web'
+                    };
+                     axios.post('https://dev.perseo.tv/ws/GetView.php',qs.stringify(authData), config)
+                     .then(res => {
+                       console.log(res.data);
+                       localStorage.setItem('results',res.data.contents);
+                     }).catch((error)=>{
+                       console.log(error);
+                     })
+                    setTimeout(() => {
+                        history.push('/main')
+                    }, 5000);
+                 }else{notification.error({ message: 'Error', description: 'Error to Login User, Try Again' });}
+
+
+            }).catch(error => { console.log(error); notification.error({ message: 'Error', description: 'Error to Login User, Try Again' }); })
             
     };
 
