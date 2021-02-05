@@ -67,7 +67,7 @@ function Main () {
           <Link to="/logout">Salir</Link>
           </header>
             <h3>Welcome</h3>
-            <Search placeholder="Realizar búsqueda" enterButton="Search" size="large" loading />
+            
 
             <form onSubmit={view}>
             <Button  type="submit" htmlType="submit" value="Submit">
@@ -83,8 +83,14 @@ function Main () {
               >
               <p>{<p>ID: {localStorage.getItem('results')}</p>} description={localStorage.getItem('results')}</p><hr/>
               </Card> */}
-              <Table dataSource={series} pagination={{pageSize: 6}}>
+              <Table dataSource={series} pagination={{pageSize: 7}}>
+              <Search placeholder="Realizar búsqueda" enterButton="Search" size="short" loading />
               <Column title="Id" dataIndex="id" key='id' />
+              <Column title="Title" dataIndex="title" key='title' />
+              <Column title="Section" dataIndex="section" key='section' />
+              <Column title="Duration" dataIndex="duration" key='duration' />
+              <Column title="Cover" dataIndex="cover" key='cover' />
+              <Column title="Url" dataIndex="url" key='url' />
               </Table>
         </div>
     )
