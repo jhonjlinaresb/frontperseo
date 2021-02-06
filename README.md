@@ -21,9 +21,13 @@
 
 - Login View:
 [![Login](https://i.gyazo.com/5a147f6fbda2a364a748620be34bff2f.gif)](https://gyazo.com/5a147f6fbda2a364a748620be34bff2f)
+>Error to Login:
+[![errorLogin](https://i.gyazo.com/9e930342a30c506390f71d2ed3c6be42.gif)](https://gyazo.com/9e930342a30c506390f71d2ed3c6be42)
+
 - Main View:
 [![Main](https://i.gyazo.com/b13bf968ae4b421d456cf26bfbffd5cd.gif)](https://gyazo.com/b13bf968ae4b421d456cf26bfbffd5cd)
 - Player View:
+
 [![Player](https://i.gyazo.com/b469f0ac3950f0155d7a75da7f389715.gif)](https://gyazo.com/b469f0ac3950f0155d7a75da7f389715)
 
 - Logout:
