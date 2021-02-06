@@ -27,6 +27,6 @@
 [![Player](https://i.gyazo.com/b469f0ac3950f0155d7a75da7f389715.gif)](https://gyazo.com/b469f0ac3950f0155d7a75da7f389715)
 
 - Logout:
-[![Logout](https://i.gyazo.com/8438602c98859b5b739a6fe31d6269ee.gif)](https://gyazo.com/8438602c98859b5b739a6fe31d6269ee)
+[![Logout](https://i.gyazo.com/2d53d980b5891fa775402d073fb6ead0.gif)](https://gyazo.com/2d53d980b5891fa775402d073fb6ead0)
 
 Gracias por la oportunidad de haber participado en esta prueba técnica, con cada reto aprendo algo nuevo así que me siento muy feliz.

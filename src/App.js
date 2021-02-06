@@ -36,7 +36,7 @@ const App = () => {
 
   const Logout = () =>{
     localStorage.removeItem('authToken', 'results');
-    notification.success({ message: 'Good Bye', description: user.user });
+    notification.success({ message: 'Good Bye!', description: 'Thank you for choosing Perseo TV!' });
     return <Redirect to="/" /> 
   }
   return (
