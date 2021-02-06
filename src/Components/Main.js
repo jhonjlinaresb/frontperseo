@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Input, Button, Table } from 'antd';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { EyeOutlined } from '@ant-design/icons';
+import { EyeOutlined, PoweroffOutlined } from '@ant-design/icons';
 
 const { Search } = Input;
 const Column = Table;
@@ -67,9 +67,13 @@ function Main () {
        }
 
     return (
-        <div>
+        <div style={{padding: 10, backgroundColor: '#2E2C3A'}}>
           <header>
-          <Link to="/logout">Salir</Link>
+          <button style={{ padding: 4, backgroundColor: '#2c2c2c'}}>
+          <Link to="/logout">
+           <PoweroffOutlined />Logout
+          </Link>
+          </button>
           </header>
             <h3>Welcome</h3>
             
@@ -109,6 +113,7 @@ function Main () {
             />
               </Table>
         </div>
+        
     )
 }
 

@@ -2,8 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import qs from 'qs';
 import crypto from 'crypto';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 import {notification, Form, Input, Card, Button} from 'antd';
+import { HomeOutlined, UserAddOutlined } from '@ant-design/icons';
 
 //Variables AntDesign
 const layout = {
@@ -61,13 +62,16 @@ function Login({setUser}) {
     };
 
     return (
-        <div className="login">
-            <Card>
+        <div style={{padding: 20, backgroundColor: '#2E2C3A'}}>
+            <Card style={{padding: 10, backgroundColor: '#2E2C3A'}}>
+                <Link to="/">
+                    <h2 style={{color: 'white'}}><HomeOutlined /></h2>
+                </Link>
             <form
              onSubmit={handleSubmit}
             {...layout}
             >
-                <h1>Login Here!</h1>
+                <h3> <UserAddOutlined /> Login</h3>
                 <Form.Item 
                 name="user"
                 rules={[{ required: true, message: 'Please input your email!' }]}

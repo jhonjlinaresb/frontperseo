@@ -5,7 +5,8 @@ import Player from './Components/Player';
 import Home from './Actions/Home';
 import axios from 'axios';
 import 'antd/dist/antd.css';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 
 const App = () => {
 
@@ -37,7 +38,7 @@ const App = () => {
     return <Redirect to="/" />
   }
   return (
-  <div>
+  <div style={{padding: 10, backgroundColor: '#2E2C3A'}}>
     <BrowserRouter>
     <Switch>
     <Route path="/" exact><Home /></Route>
