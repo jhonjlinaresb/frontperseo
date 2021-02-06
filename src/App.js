@@ -5,6 +5,7 @@ import Player from './Components/Player';
 import Home from './Actions/Home';
 import axios from 'axios';
 import 'antd/dist/antd.css';
+import { notification } from 'antd';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 
@@ -35,7 +36,8 @@ const App = () => {
 
   const Logout = () =>{
     localStorage.removeItem('authToken', 'results');
-    return <Redirect to="/" />
+    notification.success({ message: 'Good Bye', description: user.user });
+    return <Redirect to="/" /> 
   }
   return (
   <div style={{padding: 10, backgroundColor: '#2E2C3A'}}>
